@@ -1,0 +1,11 @@
+runtime: python27
+threadsafe: true
+
+# [START handlers]
+handlers:
+- url: /assets
+  static_dir: assets
+- url: /.*
+  script: main.app
+# [END handlers]
+
