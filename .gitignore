@@ -1,5 +1,2 @@
-<<<<<<< HEAD
 lib/*
-=======
-load/*
->>>>>>> 6e09b3d73769ca55ee9996efa4631bf6ebb0a58b
+*.pyc
