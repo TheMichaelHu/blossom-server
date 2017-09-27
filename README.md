@@ -2,11 +2,23 @@
 Flask server for producing commands for blossom
 
 # video to json script
-*Note, you'll need ffmpeg installed to do opencv stuff probably*
+The server and script are currently separated (script is in `./process_vid/`). The script uses a python library to download a video from youtube, and opencv to go through the video frame by frame.
 
-The server and script are currently separated (script is in `./process_vid/`), it's easier to work with the script that way. The script uses a python library to download a video from youtube, and opencv to go through the video frame by frame.
+## downloading a video
+To download a video off youtube, run
+```
+python process_vid/make_animation.py -v [video url] -d [destination]
+```
+The destination is optional and defaults to your current directory
 
-# server setup
+## processing a video
+To process a video that's been downloaded into a json file, run
+```
+python process_vid/make_animation.py -p [video] -d [destination]
+```
+The destination is optional and defaults to your current directory
+
+# server setup (*Note, just ignore the server stuff for how.*)
 - Set up Google App Engine, first few steps of [this](https://cloud.google.com/appengine/docs/standard/python/getting-started/python-standard-env#test_the_application)
 - Make sure running `python --version` gets 2.7.x, not 3.6 or something
 - Install dependencies with `pip install -t lib -r requirements.txt`

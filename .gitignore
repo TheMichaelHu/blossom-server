@@ -1,2 +1,4 @@
 lib/*
 *.pyc
+*.mp4
+*.json
