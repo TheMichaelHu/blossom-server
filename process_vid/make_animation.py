@@ -1,10 +1,10 @@
-from sys import argv
 from os import path
 from pytube import YouTube
 import argparse
 import numpy as np
 import cv2
 import json
+
 
 def download_video(url, dest):
   yt = YouTube(url)
@@ -18,6 +18,7 @@ def download_video(url, dest):
   video.download(dest)
   print("Video saved to:", "".join([dest, "/", yt.filename, ".mp4"]))
 
+
 def generate_animation(vid, dest):
   emotions = {
     "idle": "idle",
@@ -26,14 +27,14 @@ def generate_animation(vid, dest):
     "distress": "io5/distress",
     "fear": "io1/fear",
   }
-  emote = "idle"
+  emote = ""
   head, tail = path.split(vid)
-  vid_json = { "videoID": tail.split(".")[-2], "triggers": {} }
+  vid_json = {"videoId": tail.split(".")[-2], "triggers": []}
 
   cap = cv2.VideoCapture(vid)
 
   # Check if camera opened successfully
-  if (cap.isOpened()== False):
+  if not cap.isOpened():
     print("Error opening video stream or file")
 
   # Read until video is completed
@@ -44,10 +45,11 @@ def generate_animation(vid, dest):
       blackness = 1 - detect_color(frame)
       time, emote = handle_blackness(blackness, cap.get(cv2.CAP_PROP_POS_MSEC), emote)
       if time:
-        vid_json["triggers"][time] = {
+        vid_json["triggers"].append({
+          "time": time,
           "emotion": emote,
           "gesture": emotions[emote],
-        }
+        })
         print(time, emote, blackness)
 
       # Press Q on keyboard to  exit
@@ -64,9 +66,11 @@ def generate_animation(vid, dest):
   cv2.destroyAllWindows()
 
   if path.isdir(dest):
-    dest = "".join([dest, "/", tail.split(".")[0], ".json"])
+    dest = "".join([dest, "/", tail.split(".")[0], ".es6"])
   with open(dest, 'w+') as dest_file:
+    dest_file.write("var emotions =\n")
     json.dump(vid_json, dest_file, sort_keys=True, indent=4, separators=(',', ': '))
+
 
 def handle_blackness(blackness, time, prev_emote):
   if blackness < .15:
@@ -83,10 +87,11 @@ def handle_blackness(blackness, time, prev_emote):
     emote = "idle"
   return [time, emote] if emote != prev_emote else [None, emote]
 
+
 def detect_color(img):
   color_ranges = [
-  	([200, 200, 200], [255, 255, 255]),
-  	# ([50, 100, 0], [255, 255, 100]),
+    ([200, 200, 200], [255, 255, 255]),
+    # ([50, 100, 0], [255, 255, 100]),
   ]
   masks = []
   for (lower, upper) in color_ranges:
@@ -107,10 +112,11 @@ if __name__ == "__main__":
 
   args = parser.parse_args()
 
-  dest = args.destination or ["."]
   if args.video:
+    dest = args.destination or ["."]
     download_video(args.video[0], dest[0])
   elif args.process:
+    dest = args.destination or ["./demo/gestures.es6"]
     generate_animation(args.process[0], dest[0])
   else:
     print("Type -h or --help for help.")

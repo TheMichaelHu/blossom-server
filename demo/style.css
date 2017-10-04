@@ -1,0 +1,17 @@
+#emotion {
+  font-size: 32pt;
+}
+#player {
+  margin: 0 auto;
+}
+#timecode {
+  position:fixed;
+  top: 10pt;
+  left: 10pt;
+  text-align: center;
+
+  width: 40pt;
+  padding: 5pt;
+  background-color: black;
+  color: white;
+}
