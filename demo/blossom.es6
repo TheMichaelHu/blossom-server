@@ -92,7 +92,7 @@ function triggerEmotion(em) {
   if (!em.duration) {
     em.duration = 99999999;
   }
-  clearEmotion = setTimeout(triggerEmotion, em.duration, {"emotion": "*", "gesture": "idle", "duration": 999999999});
+  clearEmotion = setTimeout(triggerEmotion, em.duration, {"emotion": "*", "gesture": "idle", "duration": 3000});
 }
 
 function handleEmotion(em) {

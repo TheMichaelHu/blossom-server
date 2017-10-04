@@ -2,75 +2,45 @@ var emotions =
 {
     "triggers": [
         {
-            "emotion": "idle",
-            "gesture": "idle",
-            "time": 33.36666666666667
+            "emotion": "fear",
+            "gesture": "io1/fear",
+            "time": 33.41815097540288
+        },
+        {
+            "emotion": "calm",
+            "gesture": "io8/calm",
+            "time": 768.6174724342662
+        },
+        {
+            "emotion": "look",
+            "gesture": "io2/look",
+            "time": 1336.7260390161152
+        },
+        {
+            "emotion": "sad",
+            "gesture": "io7/sad",
+            "time": 1637.4893977947413
         },
         {
             "emotion": "distress",
             "gesture": "io5/distress",
-            "time": 2502.5
+            "time": 2606.615776081425
+        },
+        {
+            "emotion": "think",
+            "gesture": "io11/think",
+            "time": 2773.706530958439
         },
         {
             "emotion": "fear",
             "gesture": "io1/fear",
-            "time": 3336.6666666666665
+            "time": 2873.9609838846477
         },
         {
-            "emotion": "distress",
-            "gesture": "io5/distress",
-            "time": 3803.8
-        },
-        {
-            "emotion": "fear",
-            "gesture": "io1/fear",
-            "time": 4237.566666666667
-        },
-        {
-            "emotion": "idle",
-            "gesture": "idle",
-            "time": 5071.733333333334
-        },
-        {
-            "emotion": "fear",
-            "gesture": "io1/fear",
-            "time": 7674.333333333333
-        },
-        {
-            "emotion": "idle",
-            "gesture": "idle",
-            "time": 15248.566666666668
-        },
-        {
-            "emotion": "fear",
-            "gesture": "io1/fear",
-            "time": 22722.7
-        },
-        {
-            "emotion": "idle",
-            "gesture": "idle",
-            "time": 27861.166666666668
-        },
-        {
-            "emotion": "fear",
-            "gesture": "io1/fear",
-            "time": 32832.8
-        },
-        {
-            "emotion": "idle",
-            "gesture": "idle",
-            "time": 38004.63333333333
-        },
-        {
-            "emotion": "fear",
-            "gesture": "io1/fear",
-            "time": 53920.53333333333
-        },
-        {
-            "emotion": "idle",
-            "gesture": "idle",
-            "time": 58958.9
+            "emotion": "calm",
+            "gesture": "io8/calm",
+            "time": 3675.996607294317
         }
     ],
-    "videoId": "mxD7QEt85ms"
+    "videoId": "HtcGcJXAHec"
 }
